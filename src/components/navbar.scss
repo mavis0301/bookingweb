@@ -1,8 +1,91 @@
 .navbar{
-    color:rgb(221, 193, 244);
-    font-size: 24px;
-    // width:300;
-    // height:50;
-    // background-color: rgb(130, 113, 204);
+    background-color:var(--primary-color);
+    // font-size: 24px;
+    width:100%;
+    height: 160px;
+    display:flex;
+    justify-content: center;//橫 置中
+    .navbarContainer{
+        width: 90%;
+        height:100%;
+        max-width: 1024px;
+        color: white;
+        .lineOne{
+            display: flex;
+            height: 50%;
+            align-items: center;
+            justify-content: space-between;
+            .left{
+                display: flex;
+                span{
+                    font-size: 24px;
+                    font-weight: 500;
+                }
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                .navButtonFlag{
+                    border-radius: 50%; //變圓形
+                    height: 30px;
+                    width: 30px;
+                    border: none;
+                    // background-image: url('https://cdn-icons-png.flaticon.com/512/4436/4436481.png');
+                    background-image: url("https://q-xx.bstatic.com/backend_static/common/flags/new/48-squared/tw.png");
+                    background-size: cover;
+                    &:hover {
+                        cursor: pointer;
+                        border: 1px solid lightgray;
+                    }
+                }
+                .navButtonNotif{
+                    border: 1px solid white;
+                    background-color: var(--primary-color);
+                    color:white;
+                    font-size: 14px;
+                    margin-left: 10px;
+                    padding: 8px 16px;
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.14);
+                    }
+                }
+                .navButton{
+                    border: 1px solid white;
+                    background-color: white;
+                    color:var(--primary-color);
+                    font-size: 14px;
+                    margin-left: 10px;
+                    padding: 8px 16px;
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.86);
+                        cursor: pointer;
+                    }
+                }
+
+            }
+        }
+        .lineTwo{
+            display: flex;
+            height: 50%;
+            align-items: center;
+            gap: 20px;  //button間距
+            .item{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                // border: 3px solid white;
+                border-radius: 25px;
+                padding: 10px 15px;
+                &:hover{
+                    background-color: rgba(255,255,255,0.14);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
     
+}
+.active{
+    border:1px solid white;
+    background-color: rgba(255, 255, 255, 0.14);
 }

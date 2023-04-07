@@ -1,0 +1,72 @@
+.header{
+    background-color: var(--primary-color);
+    display:flex;
+    justify-content: center;
+    padding: 0px 20px;
+    position: relative;
+    .headerContainer{
+        max-width: 1024px;
+        color: white;
+        width: 100%;
+        margin: 20px 0px 100px 0px;  
+          
+        .headerTitle{       
+            font-size: 48px;
+        }
+        .headerDes{
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        .headerSearchBar{    
+            display: flex;
+            position: absolute;
+            bottom: 10px;
+            height: 55px;
+            width: 100%;
+            max-width: 1024px;
+            align-items: center;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(223, 130, 0);
+            svg{
+                color: lightgray;
+                font-size: 24px;
+                margin-left: 10px;
+            }
+            .searchBarItem:first-child{
+                width: calc(30%-20px);        
+            }
+            input{
+                
+                border:none;
+                font-size: 16px;
+                text-overflow: ellipsis;//讓超出的字變'...'
+                outline: none;
+            }
+            .searchBarItem{
+                display: flex;
+                height: 50px;
+                width: 320px;
+                background-color: rgb(255, 255, 255);
+                align-items: center;
+                gap: 10px;
+                margin-left: 2px;
+                border-radius: 2px;
+                color: rgb(0, 0, 0);
+                cursor: pointer;   
+            }
+            .searchBarBtn{
+                background-color: var(--primary-color);
+                color: white;
+                height: 50px;
+                width: 60px;
+                border: none;
+                border-radius: 2px;
+                margin: 0px 2px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
