@@ -1,6 +1,8 @@
 import React from 'react'
 import NavBar from '../components/Navbar'
 import Header from '../components/Header'
+import Announcement from '../components/Announcement'
+import Feature from '../components/Feature'
 import './home.scss'
 
 
@@ -9,6 +11,8 @@ const home = () => {
     <div className='home'>
       <NavBar/>
       <Header/>
+      <Announcement/>
+      <Feature/>
     </div>
   )
 }
