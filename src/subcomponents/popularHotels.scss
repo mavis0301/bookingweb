@@ -1,0 +1,62 @@
+.popularHotels{
+    display: flex;
+    gap: 15px;
+
+    .item{
+        img{
+            border-radius: 2px;
+            object-fit: cover;
+            width: 250px;
+            height: 230px;
+        }
+        .itemInfo{     
+            font-weight: 700;       
+            .subTitle{
+                color: gray;
+                font-size: 12px;
+            }
+            .price{
+                color: black;
+                font-weight: 500;
+                padding: 2px 0px;
+            }
+            .rate{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: var(--primary-color);
+                    border: none;
+                    border-radius: 5px 5px 5px 0px;
+                    padding: 5px 5px;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 16px;
+                    width: 30px;
+                    height: 30px;
+                }
+                span{
+                    color: black;
+                }
+                p{                    
+                    font-size: 12px;
+                    color: gray; 
+                }
+            }
+        }
+    }
+    
+}
+
+//item
+    //img
+    //itemInfo
+        //subTitle
+        //price
+        //rate
+            //span
+            //p
+            //button

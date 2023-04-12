@@ -1,0 +1,20 @@
+.feature{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    overflow: hidden;
+    .container{
+        max-width: 1024px;
+        width: 100%;
+        .listTitle {
+            padding: 15px 10px;
+        }
+        .listItems {
+            padding: 0px 10px;
+            gap: 10px;
+            display:flex;
+            overflow-x: scroll;
+        }
+    }
+}
