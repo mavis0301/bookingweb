@@ -8,8 +8,10 @@ import * as locales from 'react-date-range/dist/locale';
 // //用它來叫出不同版本的語言翻譯，把日曆換成中文
 import { DateRange } from 'react-date-range';
 import format from 'date-fns/format';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [OpenCalendar, SetOpenCalendar] = useState(false);
   const [OpenConditions, SetOpenConditions] = useState(false);
   const [destination, setDestination] = useState("");
@@ -36,7 +38,12 @@ const Header = () => {
       
     })
   }
+
+  const handleSearchBarSubmit = () => {
+    navigate("/hotelList",{state:{destination,dates,conditions}})
+  }
   
+
 
   return (
     <div className='header'>
@@ -111,7 +118,7 @@ const Header = () => {
               </div>
             </div>}
           </div>
-          <button className='searchBarBtn'>搜尋</button>
+          <button className='searchBarBtn' onClick={handleSearchBarSubmit}>搜尋</button>
         </div>
       </div>
     </div>
