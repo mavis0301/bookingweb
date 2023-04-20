@@ -1,6 +1,6 @@
-import { faClipboardCheck, faHeartCircleCheck, faLocationDot, faPeopleGroup, faSmokingBan, faWifi } from '@fortawesome/free-solid-svg-icons';
+import { faClipboardCheck, faHeartCircleCheck, faLocationDot, faPeopleGroup, faSmokingBan, faWifi, faXmark,faAngleLeft,faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef } from 'react'
+import React, { useRef , useState} from 'react'
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar'
 import { gsap } from "gsap";
@@ -29,36 +29,72 @@ const Hotel = () => {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
     },
     {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
+      src: "../images/2.png",
     },
     {
-      src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
+      src: "../images/house1.jfif",
     },
   ];
-
-  const handleHover = e => {
+  const [openSlider, setOpenSlider] = useState(false);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const handleHover = (e) => {
     gsap.to(comments, {
-      css: {
-        display: "flex",
-        opacity: 1,
+      css:{
+        display:"flex",
+        opacity:1,
       },
-       ease: "power3.inOut"
+      ease:"power3.inOut"
     })
   }
-  //離開特效
   const handleHoverExit = e => {
-    gsap.to(comments, {
-      css: {
-        display: "none",
-        opacity: 0,
+    gsap.to(comments,{
+      css:{
+        display:"none",
+        opacity:0,
       },
-       ease: "power3.inOut"
-
+      ease:"power3.inout"
     })
   }
+  const clickSlider = (index) => {
+    setOpenSlider(true);
+    setSliderIndex(index);
+  }
+  const sliderDirection = (i) => {
+    let index = sliderIndex;
+    if(i<0){
+      index -= 1;
+      if(index < 0){
+        index = photos.length -1;
+      }
+    }
+    else{
+      index += 1;
+      if(index >= photos.length){
+        index = 0;
+      }
+    }
+    setSliderIndex(index);
+  }
+
   return (
     <div className='hotel'>
       <Navbar />
+
+      { openSlider && <div className="slider">
+        <div className="sliderWrapper">
+          <div className="wrapperTitle">
+          <div className='TitleName'>台南微醺文旅</div>
+          <span className="CloseSign" onClick={()=>{setOpenSlider(false)}}>關閉
+            <FontAwesomeIcon icon={faXmark}   /></span> 
+          </div>
+          <div className="wrapperBody">
+            <FontAwesomeIcon icon={faAngleLeft} className="arrow" onClick={()=>{sliderDirection(-1)}}  />
+            <img src={photos[sliderIndex].src} alt="" />
+            <FontAwesomeIcon icon={faAngleRight} className="arrow" onClick={()=>{sliderDirection(1)}}/>
+          </div>
+        </div>
+      </div>}
+
       <div className="HotelContainer">
         <div className="HotelWrapper">
           <div className="HotelHeaderBtn">
@@ -82,10 +118,9 @@ const Hotel = () => {
             </div>
           </div>
 
-          <div className="hotelImgWrapper">
-
-            <div className="popupcomment" onMouseEnter={e => handleHover(e)} onMouseOut={e => handleHoverExit(e)} >
-              <div className='commentInfo' onMouseEnter={e => handleHover(e)} ref={e => (comments = e)} >
+          <div className="hotelImgWrapper" >
+            <div className="popupcomment"  onMouseEnter={e => handleHover(e)} onMouseOut={e => handleHoverExit(e)}>
+              <div className='commentInfo' onMouseEnter={e => handleHover(e)}  ref={e => (comments = e)}>
                 <button className='commentRate'>
                   9.5
                 </button>
@@ -103,7 +138,7 @@ const Hotel = () => {
                   </div>
                   :
                   <div className="Imgwrap" key={i}>
-                    <img src={item.src} alt="img" />
+                    <img src={item.src} alt="img" onClick={()=>{clickSlider(i)}}/>
                   </div>
               )}
             </div>
