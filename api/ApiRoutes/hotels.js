@@ -1,50 +1,22 @@
-import express from "express";
+import express from "express"
+import { errorMessage } from "../errorMessage.js"
 import Hotel from "../models/Hotel.js"
+import { createHotel, deleteHotel, getAllHotels, getHotel, updatedHotel } from "../RoutesController/hotels.js"
+import { verifyAdmin } from "../JWT_Token.js"
 
+//這邊前面的url是/api/v1/hotels
 const router = express.Router()
+//創建第一筆資料
+router.post("/",verifyAdmin,createHotel)
+//抓取第一筆資料練習
+router.get("/find/:id",getHotel)
+//將第一筆資料做修改練習
+router.put("/:id",updatedHotel)
+//刪除資料
+router.delete("/:id",verifyAdmin,deleteHotel)
 
-router.get('/',(req,res) =>{
-    res.send("this is hotelsApi End points")
-})
+//抓取所有住宿資料 應為目前沒有重複api url除了post的創建一樣
+//所以可以用/api/v1/hotels/ 的api url 配合get 來抓取所有住宿資料
+router.get("/",getAllHotels)
 
-router.get("/find/:id",async(req,res)=>{
-    const id = req.params.id;
-    try{
-        const getHotel = await Hotel.findById(id)
-        res.status(200).json(getHotel)
-    }catch (error){
-        res.status(500).json(error)
-    }
-})
-
-router.post('/',async(req,res)=>{
-    const newHotel = new Hotel(req.body)
-    try{
-        const saveHotel = await newHotel.save()
-        res.status(200).json(saveHotel)
-    } catch (error){
-        res.status(500).json(error)
-    }
-})
-
-router.put("/:id",async(req,res)=>{
-    const id = req.params.id;
-    const body = req.body
-    try{
-       const updatedHotel = await Hotel.findByIdAndUpdate(id,{$set:body},{new:true})
-        res.status(200).json(updatedHotel)
-    }catch(error){
-        res.status(500).json(error)
-    }
-})
-
-router.delete("/:id",async(req,res)=>{
-    const id = req.params.id;
-    try{
-        await Hotel.findByIdAndDelete(id)
-        res.status(200).json("刪除資料成功")
-    }catch(error){
-        res.status(500).json(error)
-    }
-})
 export default router
