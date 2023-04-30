@@ -46,3 +46,27 @@ export const getAllHotels = async(req,res,next)=>{
         next(errorMessage(500,"無法抓取所有飯店資料",error)) 
     }
 }
+
+export const amountOfType = async(req,res,next)=>{
+    const type = req.query.type.split(',');
+    try{
+        const list = await Promise.all(type.map( type=>{
+            return Hotel.countDocuments({type:type});
+        }))
+        res.status(200).json(list);
+    }catch(error){
+        next(errorMessage(500,"無法抓到住宿種類",error));
+    }
+}
+
+export const amountOfCities = async(req,res,next)=>{
+    const cit = req.query.cities.split(',');
+    try{
+        const list = await Promise.all(cit.map( cc=>{
+            return Hotel.countDocuments({city:cc});
+        }))
+        res.status(200).json(list);
+    }catch(error){
+        next(errorMessage(500,"無法統計城市住宿數量",error));
+    }
+}

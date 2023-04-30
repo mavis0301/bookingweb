@@ -19,7 +19,7 @@ export const CategoriesType=[
     },
     {
         id:3,
-        name:"Villa",
+        name:"villa",
         amount:"465,344 間獨棟別墅",
         img:"https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg",
     },
@@ -71,13 +71,13 @@ export const CategoriesType=[
 export const CategoriesCities=[
     {
         id:0,
-        name:"台南",
+        name:"台南市",
         amount:"583 間住宿",
         img:"https://cf.bstatic.com/xdata/images/city/square250/687880.webp?k=a8f37ac28f438390034f6492e1ece731900df0f6133050a754123c969d7fc6d8&o=",
     },
     {
         id:1,
-        name:"台中",
+        name:"台中市",
         amount:"502 間住宿",
         img:"https://cf.bstatic.com/xdata/images/city/square250/687892.webp?k=0f5cc456997c9fa5b99510dc453534730620c0867d94630639c74b4c18641c71&o=",
     },
@@ -89,47 +89,16 @@ export const CategoriesCities=[
     },
     {
         id:3,
-        name:"花蓮市",
+        name:"屏東縣",
         amount:"603 間住宿",
         img:"https://cf.bstatic.com/xdata/images/city/square250/687822.webp?k=4750fc80f938ae0b7c16d0ac306c30f949c9ad7baba7ab79cfb7940e991849b7&o=",
     },
     {
         id:4,
-        name:"台東市",
+        name:"台北市",
         amount:"560 間住宿",
         img:"https://cf.bstatic.com/xdata/images/city/square250/687910.webp?k=ddda35cd7e422bfe96ee16fa84d4d63fe71e30fb738df85533c33c5a7365497f&o=",
     },
-    {
-        id:5,
-        name:"台北",
-        amount:"1433 間住宿",
-        img:"https://cf.bstatic.com/xdata/images/city/square250/687919.webp?k=eccf1ef09bcc42899712d36fc3972d2c1973cb7fa1d961affd01d4f8e613ff23&o=",
-    },
-    {
-        id:6,
-        name:"高雄",
-        amount:"481 間住宿",
-        img:"https://cf.bstatic.com/xdata/images/city/square250/687840.webp?k=468bbe176fbf6b09c1b0778dd14437c614a66c44ecab77429683d39bbc089aa2&o=",
-    },
-    {
-        id:7,
-        name:"墾丁",
-        amount:"113 間住宿",
-        img:"https://cf.bstatic.com/xdata/images/city/square250/687844.webp?k=b067e641ffd5aa9e7272615eb5856658792d881a74845ea905b240deaedb9005&o=",
-    },
-    {
-        id:8,
-        name:"礁溪鄉",
-        amount:"310 間住宿",
-        img:"https://cf.bstatic.com/xdata/images/city/square250/687797.webp?k=9529bb8387606c401820857c303eaa2010c96fc7797a0fffe5e9296dcf5a7b02&o=",
-    },
-    {
-        id:9,
-        name:"嘉義市",
-        amount:"75 間住宿",
-        img:"https://cf.bstatic.com/xdata/images/city/square250/687789.webp?k=e17d0b828562952dbc0c784eabfdc20b8720e61ed16aa6e8aa65752cbcd439c3&o=",
-    },
-
 ]
 export const Attractions=[
     {
